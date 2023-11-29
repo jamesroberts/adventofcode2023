@@ -1,0 +1,10 @@
+/target
+Cargo.lock
+**/*.rs.bk
+
+.session
+.test_input
+.input
+
+*.py
+aoc
