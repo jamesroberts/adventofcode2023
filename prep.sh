@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 set -e
 
@@ -28,7 +28,8 @@ else
   mkdir -p .test_input
   curl "https://adventofcode.com/$YEAR/day/$1/input" \
     --silent --max-time 10 --cookie "session=$SESSION" > ".input/$1.txt"
-  touch .test_input/$1.txt
+  touch .test_input/$1p1.txt
+  touch .test_input/$1p2.txt
 fi
 
 if test -e "src/day$1.rs"; then
@@ -110,7 +111,8 @@ EOF
 fi
 
 cat <<-EOF > "aoc"
-python3 $1.py < .test_input/$1.txt
+python3 $1.py < .test_input/$1p1.txt
+python3 $1.py < .test_input/$1p2.txt
 echo "======================"
 python3 $1.py < .input/$1.txt
 EOF
